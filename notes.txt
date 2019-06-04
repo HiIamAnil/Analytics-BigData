@@ -1,0 +1,11 @@
+we can see the web address in yarn-site.xml
+
+cores and memory is used to determine the no of executors
+before deciding it we need to know how much size the file has
+
+using hadoop fs -du -s -h /public/retail_db/orders
+5 Mb
+hadoop fs -du -s -h /public/retail_db/order_items
+4 Mb
+
+du /data/retail_db/products
