@@ -27,6 +27,6 @@ orderItemsMap = ordersItem.map(lambda y:((y.split(',')[1]),float(y.split(',')[4]
 #both the ds are created with key,value pairs now the pyspark join 
 #will understand the first value as the key and joins both ds
 
-ordersMap.join(orderItemMap)
+ordersMap.join(orderItemsMap)
 
-
+#now again 
