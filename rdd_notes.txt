@@ -1,0 +1,19 @@
+
+
+rdd=sc.textFile('dbfs:/FileStore/tables/orders.csv')
+
+rdd.map(lambda x:(x.split(',')[1].split(' ')[0].split('-')[2])).count()
+
+
+df = sqlContext.sql("SELECT * FROM orders_csv")
+#from a table to df
+
+rdd = df.rdd #but this will be in list of Rows
+
+rdd.map(lambda x:(x.split(',')[3],1)).first()
+
+rdd.filter(lambda x: (x.split(',')[3] == 'COMPLETE')).take(5)
+
+take5=roi.map(lambda x:(int(x.split(',')[1]),float(x.split(',')[4]))).take(5)
+
+rdd.filter(lambda x: (x.split(',')[3] == 'COMPLETE' or x.split(',')[3] == 'CLOSED')).take(5)
