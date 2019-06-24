@@ -3,6 +3,8 @@ sanat.bhat18@outlook.com
 
 outlook00sS@
 
+https://my.visualstudio.com/Benefits
+
 # how to find the null count of a column using this self join left
 select count(*) from 
 ( (select * from people ) a
