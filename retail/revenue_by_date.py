@@ -2,7 +2,7 @@
 """
 Created on Sat Jun  8 16:12:51 2019
 
-@author: satis
+@author: anil	
 """
 
 #joins
@@ -30,3 +30,47 @@ orderItemsMap = ordersItem.map(lambda y:((y.split(',')[1]),float(y.split(',')[4]
 ordersMap.join(orderItemsMap)
 
 #now again 
+
+
+#here we are doing sum of prices of particular orderIds by using reduce
+x=ordersItem.map(lambda x:x.split(',')).filter(lambda x: x[1] == '2').map(lambda x:float(x[4])).reduce(lambda x,y:x+y)
+print(x)
+# for i in x.take():
+#   print(i)
+
+# here we are findig least price for an order Id
+
+x=ordersItem.map(lambda x:x.split(',')).filter(lambda x: x[1] == '2').reduce(lambda x,y: x if x[4] < y[4] else y)
+
+
+print(x)
+
+
+# countByKey
+
+counts=orders.map(lambda x: (x.split(',')[3], 1)).countByKey
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
