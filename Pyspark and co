@@ -1,0 +1,20 @@
+Parquet
+  which will set the datatypes for us which is huge advantage over CSV ex: df.dtypes() which will give list of tuples with (column,datatype)
+
+
+Dataframes
+  df.describe(['col_name']).show()
+  
+  built in funtions
+    pyspark.sql.functions.mean(col_name)
+    pyspark.sql.functions.skewness(col_name)
+    pyspark.sql.functions.min(col_name)
+    cov(col1,col2)
+    corr(col1,col2)
+  
+  var = df.agg({'col_name':'mean'}).collect() try
+
+Python
+how to access a dict?
+  dict={"one":1, "two":2}
+  dict["one"]
