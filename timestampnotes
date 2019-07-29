@@ -1,0 +1,21 @@
+from pyspark.sql.functions import unix_timestamp
+x=[('09/05/2014','09/05/2014 05:02:09 AM'),
+    ('02/25/2014','02/25/2014 06:03:59 AM'),
+    ('11/19/2014','11/19/2014 07:02:59 AM')]
+df=spark.createDataFrame(x,['date','time'])
+df.show(3,False)
+# df.printSchema()
+# from pyspark.sql.funtions import unix_timestamp
+pattern='MM/dd/yyyy hh:mm:ss aa'
+day='mm/dd/yyyy'
+
+convert the date and time in string format to timestamp format
+  
+  df.withColumn('timeS',unix_timestamp('time',pattern).cast('timestamp')).show(3,False)
+
+how many distinct years are there and sort them in descending
+
+  from pyspark.sql.functions import unix_timestamp,year
+  df2=df.withColumn('timeS',unix_timestamp('time',pattern).cast('timestamp'))
+
+  df2.select(year('timeS')).distinct().orderBy('year(timeS)',ascending = False ).show()
