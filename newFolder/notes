@@ -1,0 +1,51 @@
+				mapReduce vs 			Spark
+difficulty		diff  					easy
+
+interactivity 	no inbuilt except		yes
+				hive and pig		 
+
+streaming 		near real-time 			batch
+										processing
+
+ 
+spark limitations
+	 costly
+
+	 utilizes more space for 
+
+	 reduce the data transfer between machines
+	 since the data is distri on multiple mahines
+	 on cluster. Each operation is very costly when it
+	 is moving over networks.
+
+	 
+How can you connect Hive to Spark SQL?
+	A. The first important thing is that you have to place hive-site.xml file in conf directory of Spark.
+
+	Then with the help of Spark session object we can construct a data frame as,
+
+	result = spark.sql(“select * from <hive_table>”)
+
+
+empDF = spark.read \
+    .format("jdbc") \
+    .option("url", "jdbc:oracle:thin:username/password@//hostname:portnumber/SID") \
+    .option("dbtable", "hr.emp") \
+    .option("user", "db_user_name") \
+    .option("password", "password") \
+    .option("driver", "oracle.jdbc.driver.OracleDriver") \
+    .load()
+
+multiple join conditions in while joining in Spark
+
+		 cond = [df.name == df3.name, df.age == df3.age]
+		 df.join(df3, cond, 'outer').select(df.name, df3.age).collect()
+
+		df.registerTempTable("df")
+		df3.registerTempTable("df3")
+
+		sqlContext.sql("sql query")
+
+		sqlContext.sql("Select df.name,df3.age from df outer join df3 on df.name = df3.name and df.age =df3.age").collect()
+
+
