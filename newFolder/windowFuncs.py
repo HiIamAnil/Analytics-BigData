@@ -1,10 +1,15 @@
 #########################################################################################
 # window funtions
-#
-#
+# The below use case includes 
+# 1.loading a file with | sep and then extracting year from date col.
+# 2. Loading another file to df 
+# 3. joining above dfs using requi cond 
+# 4. Renaming columns
+# 5. Then importing window and rank funtions
+# 6. Defining window 
+# 7. Saving the end results
+# you cannot save df directly as textfile should convet it to rdd
 # dff=dff.withColumn('year',dff['_c1'].substr(8,4) <<postion,length
-
-
 #Note : dff = sc.textfile(trainingdata+"part-00000").map(lambda x: x.replace('[','').replace(']','').split('|')).toDF()
 # best combination of python and spark
 #########################################################################################
